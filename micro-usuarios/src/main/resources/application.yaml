@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: servicio-usuarios
+server:
+  port: ${PORT:0}
+#para aereka server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+#para JPA    
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug

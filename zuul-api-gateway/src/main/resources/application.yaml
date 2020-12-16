@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: zuul-api-gateway
+server:  port: 8090
+eureka:  client:    service-url:      defaultZone: http://localhost:8761/eureka
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 10000      
+zuul:  routes:    productos:
+      service-id: servicio-productos
+      path: /api/productos/**
+    items:
+      service-id: servicio-items
+      path: /api/items/**
+    usuarios:
+      service-id: servicio-usuarios
+      path: /api/usuarios/**
+    oauth:
+      service-id: servicio-oauth
+      path: /api/security/**
+      sensitive-headers:      - Cookie
+      - Set-Cookie

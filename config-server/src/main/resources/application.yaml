@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: config-server#ubicacion del repo git (local/remota)  cloud:    config:      server:        git:
+          uri: file:///D:/workspaces/workspace-spring-tool-suite-4-4.8.0.RELEASE/config-server/config
+#si el repositorio se configura de forma local se usa "file"      
+#file:/// -> windows
+#file:/ -> mac/linux
+
+#si el repositorio es remoto, solo pegmaos la ruta del repo y agregamos la extesión .git
+          #uri: https://github.com/andresguzf/servicio-items-config.git
+
+#puerto por defaultserver:
+  port: 8888
+  
